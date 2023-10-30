@@ -56,4 +56,12 @@ namespace :dev do
     puts "\n\nCongrats! You should be all set.".green
     puts "\nHappy Hacking!".green
   end
+
+  desc 'Create some test data to play on development'
+  task :data do
+    require 'factory_bot'
+    include FactoryBot::Syntax::Methods
+
+    20.times { create(:project) }
+  end
 end
